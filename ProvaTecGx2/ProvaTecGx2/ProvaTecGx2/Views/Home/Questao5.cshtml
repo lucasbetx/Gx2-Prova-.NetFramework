@@ -1,0 +1,83 @@
+﻿<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="#" crossorigin="anonymous">
+
+<style>
+
+    .intern {
+        background-color: white;
+        border-radius: 10px;
+        padding: 30px;
+        border-style: solid;
+        text-align: center;
+        margin-top: 8%;
+    }
+
+    .intern2 {
+        background-color: white;
+        padding: 30px;
+        border-right-style: solid;
+        border-left-style: solid;
+        border-bottom-style: solid;
+        text-align: center;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .Button {
+        margin-top: 2%;
+    }
+
+    .TecSoma {
+        text-align: center;
+        background-color: #12AAAB;
+        margin-top: 10%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-color: black;
+        border-style: solid;
+        padding-top: 30px;
+        color: white;
+    }
+</style>
+
+<form>
+    <div class="text-center intern">
+
+        <input type="text" placeholder="Digite o numero" class="nb1 form-control-sm" /> + <input type="text" placeholder="Digite o numero" class="nb2 form-control-sm" /> <br />
+
+        <input type="button" class="btn btn-primary pressButton Button" id="pressButton" value="Realizar Soma" />
+
+    </div>
+</form>
+
+<div class="TecSoma">
+
+    <h4><strong><i class="fa fa-calculator"></i> Prova Técnica - Teste Soma !</strong></h4> <br /><br />
+</div>
+
+<div class="intern2">
+
+    O Resultado da soma é: <strong><label id="showResult"></label></strong>
+
+</div>
+
+<script>
+
+    var number1;
+    var number2;
+
+    $('.pressButton').click(function () {
+
+        var result;
+
+        number1 = $(".nb1").val();
+        number2 = $(".nb2").val();
+
+        result = ((number1 * 1) + (number2 * 1));
+
+        document.getElementById('showResult').innerText = result;
+
+
+    })
+
+</script>

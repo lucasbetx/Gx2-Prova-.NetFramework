@@ -1,0 +1,83 @@
+﻿<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="#" crossorigin="anonymous">
+
+<style>
+
+    .intern {
+        background-color: white;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding: 30px;
+        border-right-style: solid;
+        border-left-style: solid;
+        border-bottom-style: solid;
+        text-align: center;
+        padding-left: 20%;
+    }
+
+    .TecPorc {
+        text-align: center;
+        background-color: #12AAAB;
+        margin-top: 10%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-color: black;
+        border-style: solid;
+        padding: 30px;
+        color: white;
+    }
+
+    table tr td {
+        padding: 5px;
+    }
+
+        table tr td.dir {
+            padding-right: 15px;
+            text-align: right;
+            width: 120px;
+        }
+
+    input {
+        min-width: 450px;
+    }
+</style>
+
+<div class="TecPorc">
+    <h4><strong><i class="fa fa-calculator"></i> Prova Técnica - Calcular valor do desconto !</strong></h4>
+</div>
+
+<div class="intern">
+
+    <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td class="dir"><strong>Valor R$:</strong></td>
+            <td><input type="text" name="valor1" id="valor1" class="form-control" /></td>
+        </tr>
+        <tr>
+            <td class="dir"><strong>Desconto %:</strong></td>
+            <td><input type="text" name="desconto1" id="desconto1" onkeyup="calcDesc()" class="form-control" /></td>
+        </tr>
+        <tr>
+            <td class="dir"><strong>Valor final:</strong></td>
+            <td><input type="text" name="total" id="total" value="0.00" class="form-control" /></td>
+        <tr>
+    </table>
+
+</div>
+
+<script>
+
+    function calcDesc() {
+
+        document.getElementById("total").value = '0';
+
+        var valorTotal = parseFloat(document.getElementById("valor1").value);
+
+        var desconto = parseFloat(document.getElementById("desconto1").value);
+        var pDesconto = parseFloat((valorTotal * desconto) / 100);
+
+        var valorFinal = parseFloat(valorTotal) - parseFloat(pDesconto);
+        document.getElementById("total").value = 'R$ ' + valorFinal.toFixed(2);
+
+    }
+
+</script>

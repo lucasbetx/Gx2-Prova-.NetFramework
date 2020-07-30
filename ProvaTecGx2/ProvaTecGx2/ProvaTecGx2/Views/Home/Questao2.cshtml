@@ -1,0 +1,119 @@
+﻿<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="#" crossorigin="anonymous">
+
+<style>
+
+    .cpfAcpt {
+        color: green;
+    }
+
+    .cpfError {
+        color: red;
+    }
+
+    #interno {
+        background-color: white;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding: 30px;
+        border-left-style: solid;
+        border-right-style: solid;
+        border-bottom-style: solid;
+        text-align: center;
+    }
+
+    .Button {
+        margin-top: 2%;
+    }
+
+    .TecCpf {
+        text-align: center;
+        background-color: #12AAAB;
+        margin-top: 10%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-color: black;
+        border-style: solid;
+        padding-top: 30px;
+        color: white;
+    }
+
+    .modal-content {
+        border-radius: 10px;
+    }
+
+    .modal-header {
+        background-color: #12AAAB;
+        color: white;
+        border-color: black;
+    }
+
+</style>
+
+<div class="TecCpf">
+
+    <h4><strong><i class="fa fa-user"></i> Prova Técnica - Teste CPF !</strong></h4> <br /><br />
+</div>
+
+<div id="interno">
+
+    <input type="text" placeholder="Insira seu CPF" class="cpfInput form-control-sm" id="Cpf" autocomplete="off" /> <br />
+
+    <button class="buttonCpf Button btn btn-primary" data-toggle="modal" data-target="#exampleModal">Conferir Cpf</button>
+
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><strong><i class="fa fa-user"></i> Teste CPF</strong></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div hidden class="cpfSuccess">
+                    CPF : <strong><label class="showCpfEr" id="showCpfEr"></label></strong><br />
+                    <label class="cpfAcpt"><strong>CPF preenchido!!</strong></label>
+                </div>
+                <div hidden class="showCpfSuc">
+                    <label class="cpfError"><strong>Erro! Por favor, insira o CPF!!</strong></label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    $("#Cpf").mask("999.999.999-99");
+
+    var confCpf;
+
+    $('.buttonCpf').click(function () {
+
+        confCpf = $(".cpfInput").val();
+
+        console.log(confCpf.length)
+
+        //Na condição foi necessario colocar um diferente de 14, e não 11 como pedido, pois os pontos e hifen, que contam como caracteres.
+
+        if (confCpf.length != "14") {
+            $('.showCpfSuc').removeAttr('hidden')
+            $('.cpfSuccess').attr('hidden', true)
+        }
+        else {
+            $('.cpfSuccess').removeAttr('hidden')
+            $('.showCpfSuc').attr('hidden', true)
+            document.getElementById('showCpfEr').innerText = confCpf;
+        }
+
+    })
+
+</script>
